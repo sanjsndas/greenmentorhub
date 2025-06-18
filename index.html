@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GreenMentor Hub - Mentorship Rooted in Growth</title>
+<meta name="description" content="GreenMentor Hub - Gardening Workshops, Video Consultations, Plant Advice. Mentorship rooted in growth." />
+<!-- Google Material Icons CDN -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<!-- Google Fonts: Inter for body and Poppins for headings -->
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+  /* Reset & base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #fff9f0;
+    color: #5b432c;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a {
+    color: #7b5738;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: #4a2e11;
+    outline: none;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    color: #4a2e11;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  h1 {
+    font-weight: 800;
+    font-size: 3rem;
+    max-width: 90vw;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 2.25rem;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    color: #5b432c;
+    max-width: 90ch;
+  }
+  /* Layout - centered container */
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background-color: #f3e7d9;
+    box-shadow: 0 2px 6px rgba(123, 87, 56, 0.15);
+    z-index: 1000;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+  .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.75rem;
+    color: #7b5738;
+    user-select: none;
+  }
+  nav {
+    display: flex;
+    gap: 1.75rem;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #7b5738;
+    padding: 0.375rem 0.5rem;
+    border-radius: 8px;
+  }
+  nav a:hover,
+  nav a:focus {
+    background-color: #d7bfa9;
+    color: #4a2e11;
+  }
+  /* Mobile nav toggle */
+  .mobile-nav-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #7b5738;
+    cursor: pointer;
+  }
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #fff3e6 0%, #f0dbc0 100%);
+    padding: 5rem 1rem 6rem;
+    text-align: center;
+    user-select: none;
+  }
+  .hero h1 {
+    font-size: 3.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    color: #6f532e;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-primary {
+    background-color: #8b5e12;
+    color: white;
+    border: none;
+    padding: 0.875rem 2.5rem;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    cursor: pointer;
+    box-shadow: 0 6px 10px rgba(139, 94, 18, 0.4);
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #5f3a0a;
+    outline: none;
+  }
+  /* Section spacing */
+  section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  /* Cards */
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(139, 94, 18, 0.06);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 28px rgba(139, 94, 18, 0.18);
+  }
+  /* Cards grid */
+  .cards-grid {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  /* Articles styling */
+  article {
+    margin-bottom: 2rem;
+  }
+  article h3 {
+    margin-bottom: 0.5rem;
+    color: #4a2e11;
+  }
+  article p {
+    font-size: 1rem;
+  }
+  /* Images */
+  .image-thumb {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(139, 94, 18, 0.1);
+    object-fit: cover;
+  }
+  /* Video thumbnails */
+  .video-thumbnail {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(139, 94, 18, 0.15);
+    cursor: pointer;
+  }
+  .video-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+  }
+  /* Webinar & Q&A board layout */
+  .webinar-section {
+    background-color: #f9f0de;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: inset 0 0 10px #d9c6a8;
+  }
+  .webinar-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #cab288;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .webinar-header h2 {
+    flex-grow: 1;
+    font-weight: 800;
+  }
+  .webinar-text {
+    font-size: 1.1rem;
+    color: #6f532e;
+    margin-bottom: 1.5rem;
+  }
+  /* Q&A board */
+  .qa-board {
+    margin-top: 1.5rem;
+    max-height: 480px;
+    overflow-y: auto;
+    border-radius: 12px;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(139, 94, 18, 0.12);
+  }
+  .qa-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e0d3b9;
+    font-size: 0.95rem;
+  }
+  .qa-item:last-child {
+    border-bottom: none;
+  }
+  .qa-item strong {
+    color: #7b5738;
+  }
+  /* Gallery */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .gallery img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(139,94,18,0.15);
+  }
+  /* Forms styling */
+  form {
+    max-width: 500px;
+    margin-top: 2rem;
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #5b432c;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d9c9bb;
+    border-radius: 10px;
+    background-color: #faf5ee;
+    resize: vertical;
+    font-size: 1rem;
+    color: #7b5738;
+    transition: border-color 0.3s ease;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #7b5738;
+    outline: none;
+    box-shadow: 0 0 10px rgba(123,87,56,0.3);
+    background-color: white;
+  }
+  textarea {
+    min-height: 120px;
+  }
+  button[type="submit"] {
+    background-color: #7b5738;
+    color: white;
+    border: none;
+    padding: 0.875rem 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background-color: #4a2e11;
+    outline: none;
+  }
+  /* Feedback messages */
+  .feedback-message {
+    background-color: #f2e9d5;
+    color: #4a2e11;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+  /* Disclaimer */
+  .disclaimer {
+    font-size: 0.85rem;
+    color: #7b6b51;
+    background-color: #f6f1e2;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 3rem;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Bottom sticky info */
+  .bottom-info {
+    background-color: #59431a;
+    color: white;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+  }
+  /* Address */
+  address {
+    font-style: normal;
+    font-weight: 600;
+    color: #7b5738;
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  /* Responsive Grid for main content area */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    nav {
+      gap: 2.5rem;
+    }
+    .main-grid {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+  @media (min-width: 1024px) {
+    .main-grid {
+      grid-template-columns: 4fr 3fr 3fr;
+      gap: 3rem;
+    }
+    .webinar-video-wrap {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+  /* Breadcrumb & hamburger (mobile) */
+  .breadcrumb {
+    font-size: 0.875rem;
+    color: #7b5738;
+    margin: 0.5rem 0;
+  }
+  .breadcrumb a {
+    font-weight: 600;
+  }
+  /* Mobile nav */
+  @media (max-width: 767px) {
+    nav {
+      display: none;
+    }
+    .mobile-nav-toggle {
+      display: inline-block;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background-color: #f3e7d9;
+      border-radius: 16px;
+      position: absolute;
+      right: 1rem;
+      top: 60px;
+      box-shadow: 0 8px 24px rgba(123, 87, 56, 0.2);
+      padding: 1rem 1.5rem;
+      width: 180px;
+      z-index: 1001;
+    }
+    .mobile-nav.show {
+      display: flex;
+    }
+    .mobile-nav a {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #d7bfa9;
+      color: #4a2e11;
+    }
+    .mobile-nav a:last-child {
+      border-bottom: none;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container header-inner" role="banner">
+    <div class="logo" aria-label="GreenMentor Hub Logo">GreenMentor Hub</div>
+    <button class="mobile-nav-toggle" aria-controls="mobile-navigation" aria-expanded="false" aria-label="Toggle navigation menu">
+      <span class="material-icons">menu</span>
+    </button>
+    <nav aria-label="Primary navigation">
+    <a href="index.html" tabindex="0"aria-current="page">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container" role="main" tabindex="-1">
+  <section class="hero" aria-label="Main introduction">
+    <h1>Mentorship rooted in growth.</h1>
+    <p>Welcome to GreenMentor Hub — your trusted partner for gardening workshops, live video consultations, and expert plant advice to cultivate your green passion.</p>
+    <button class="btn-primary" onclick="document.getElementById('workshops').scrollIntoView({behavior: 'smooth'});">Explore Workshops</button>
+  </section>
+
+  <section id="about-us" aria-labelledby="about-title" tabindex="0">
+    <h2 id="about-title">About Us</h2>
+    <div class="main-grid">
+      <article>
+        <p>GreenMentor Hub is dedicated to inspiring gardeners of all levels, whether you are a beginner just planting your first seed or a seasoned horticulturist. We focus on quality mentorship that fosters sustainable and joyful growth by combining traditional gardening wisdom with modern techniques. Our team consists of expert horticulturists, botanists, landscape designers, and experienced mentors who provide educational workshops, real-time video consultations, and personalized plant care techniques tailored specifically to your garden’s ecosystem and your personal goals.</p>
+        <p>We believe that cultivating a garden is more than just planting and watering – it is a journey of knowledge, patience, and passion. Through our services, we aim to nurture not just plants, but a thriving community rooted in appreciation and stewardship of the natural world. We encourage sustainable practices that protect biodiversity and promote environmental health for future generations.</p>
+        <p>At GreenMentor Hub, we value connection – with nature, with our community members, and with the helpers and educators that guide us. We host a variety of events and mentorship programs designed to uplift your gardening skills and bring you closer to your green goals.</p>
+        <img src="s1.png" alt="Group photo of diverse gardening mentors smiling warmly outdoors with plants and warm earthy tones" class="image-thumb" />
+      </article>
+      <aside>
+        <div class="card">
+          <h3>Our Mission</h3>
+          <p>To empower every gardener — novice or expert — with skills and confidence through accessible, hands-on mentorship, expert advice, and community support. We want to cultivate a deeper understanding of ecological harmony through gardening.</p>
+          <p>We provide resources that make gardening approachable, enjoyable, and environmentally responsible in a welcoming and inclusive atmosphere.</p>
+        </div>
+        <div class="card" style="margin-top:1.5rem;">
+          <h3>Our Vision</h3>
+          <p>A thriving, worldwide garden community connected through knowledge sharing, sustainability, innovation, and growth inspiration. We envision a future where green spaces flourish in urban and rural landscapes alike, contributing to healthier lives and ecosystems.</p>
+          <p>With every seed planted, workshop attended, and consultation conducted, we aim to make gardening feel less like a chore and more like a fulfilling lifestyle.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="workshops" aria-labelledby="workshops-title" tabindex="0">
+    <h2 id="workshops-title">Gardening Workshops</h2>
+    <p>Our immersive gardening workshops are designed to cater to all skill levels. Whether you're just starting or looking to refine advanced techniques, our expert-led courses cover diverse topics with hands-on learning, live demonstrations, and Q&A sessions to ensure complete understanding.</p>
+    <p>Each workshop is crafted to provide practical knowledge that can be applied immediately in your garden. Multiple formats are available including single sessions, series, and seasonal specials.</p>
+    <p>Workshops focus not only on plant care but also on broader gardening themes aimed to promote sustainability and environmental mindfulness.</p>
+    <div class="cards-grid">
+      <div class="card" tabindex="0">
+        <img src="s2.png" alt="Instructor showing composting techniques with warm earthy tones and organic waste materials" class="image-thumb" />
+        <h3>Composting Basics</h3>
+        <p>This comprehensive workshop covers everything you need to know to start a successful composting system, whether you live in a house or an apartment. Learn how to turn kitchen scraps and garden waste into nutrient-rich compost that enriches the soil and reduces landfill waste. You will also learn about composting methods, troubleshooting common problems, and balancing green and brown materials for optimal results.</p>
+        <p>Participants will receive informational handouts and resource guides to continue composting successfully beyond the workshop.</p>
+      </div>
+      <div class="card" tabindex="0">
+        <img src="s3.png" alt="Close-up of healthy indoor green plants in pots bathed in warm natural light" class="image-thumb" />
+        <h3>Indoor Plant Care</h3>
+        <p>Explore the world of indoor plants in this detailed workshop that will help you choose the right plants for your environment and maintain their health year-round. Topics covered include ideal light exposures, watering frequency, humidity control, pruning, fertilizing, and pest identification and management.</p>
+        <p>Attendees will also learn how to propagate plants and troubleshoot common issues to keep their indoor jungles thriving.</p>
+      </div>
+      <div class="card" tabindex="0">
+        <img src="s4.png" alt="Seasonal garden planner chart with plants and warm light on wooden table" class="image-thumb" />
+        <h3>Seasonal Garden Planning</h3>
+        <p>Advance your garden's productivity and health with this workshop focused on detailed seasonal planning. Learn about crop rotation, soil health management, planting schedules, and incorporating native and perennial plants for low-maintenance success. This workshop also discusses pest and disease anticipation related to seasons and climate.</p>
+        <p>The workshop includes practical planners and checklists to guide your yearly planting activities for consistent growth and harvest.</p>
+      </div>
+    </div>
+  </section>
+     <div>
+        <h3> Gallery</h3>
+        <div class="gallery" aria-label="Gallery of past webinar highlights">
+          <img src="g1.png" alt="Cover photo for Organic Gardening webinar showing lush green garden under sunlight" />
+          <img src="g2.png" alt="Photo showing hands treating plants naturally to manage pests" />
+          <img src="g3.png" alt="Participants working on container gardens in an urban balcony setting" />
+          <img src="g4.png" alt="Demonstration of compost bin with organic matter by instructor" />
+        </div>
+      </div>
+
+  <section id="video-consultations" aria-labelledby="consultations-title" tabindex="0">
+    <h2 id="consultations-title">Live Video Consultations</h2>
+    <p>Our personalized live video consultations allow you to connect directly with our expert gardening mentors from the comfort of your home. During a session, you can share live views of your plants and garden for real-time advice on plant care, troubleshooting issues, landscape design, and seasonal tasks.</p>
+    <p>These one-on-one sessions are tailored to your specific needs and gardening environment, providing highly focused support to help you achieve thriving growth and solve challenges that off-the-shelf guides can't address.</p>
+    <p>Consultations include post-session summaries and custom care plans to guide your gardening journey forward.</p>
+    <div class="webinar-section" role="region" aria-label="Live webinars and Q&A board">
+      <div class="webinar-header">
+        <h2>Upcoming Live Webinars</h2>
+      </div>
+      <div class="webinar-text">
+        <p>Join our live webinars led by expert mentors covering a wide range of gardening topics. Each session features in-depth discussions, demonstrations, and a live Q&A where you can get your questions answered in real-time.</p>
+        <p>Upcoming webinars include:</p>
+        <ul>
+          <li><strong>Introduction to Organic Gardening</strong> – Discover sustainable practices for healthy gardens.</li>
+          <li><strong>Pest Management</strong> – Learn natural methods to protect your plants.</li>
+          <li><strong>Urban Gardening Essentials</strong> – Maximize your small space garden’s potential.</li>
+          <li><strong>Composting Workshop</strong> – Turn your waste into garden gold.</li>
+          <li><strong>Seasonal Garden Planning</strong> – Plan your garden year-round for success.</li>
+          <li><strong>Indoor Plant Care Basics</strong> – Keep your indoor plants thriving.</li>
+        </ul>
+        <p>Stay tuned for registration details and join our growing community of passionate gardeners!</p>
+      </div>
+      <div class="qa-board" aria-live="polite" aria-relevant="additions" aria-label="Garden question and answer board" tabindex="0">
+        <div class="qa-item"><strong>Q:</strong> How do I identify if my plant is overwatered?<br /><strong>A:</strong> Signs include yellowing leaves, mushy stems, and a consistently damp soil surface.</div>
+        <div class="qa-item"><strong>Q:</strong> What is the best natural pesticide?<br /><strong>A:</strong> Neem oil and insecticidal soaps are safe, effective options for common pests.</div>
+        <div class="qa-item"><strong>Q:</strong> When is the best time to prune roses?<br /><strong>A:</strong> Early spring, right before growth resumes, usually when buds begin to swell.</div>
+      </div>
+   
+    </div>
+  </section>
+
+  <section id="tips" aria-labelledby="tips-title" tabindex="0">
+    <h2 id="tips-title">Gardening Tips & Articles</h2>
+    <article tabindex="0">
+      <h3>Maximizing Your Urban Garden Space</h3>
+      <p>Urban gardening allows you to turn small spaces into lush green retreats. Using vertical gardening, container planting, and window boxes, you can create a vibrant garden regardless of space constraints.</p>
+      <p>In this article, learn how to select plants suited to small spaces, create microclimates, incorporate multi-purpose plants, and design your garden for maximum yield and aesthetic appeal.</p>
+    </article>
+    <article tabindex="0">
+      <h3>Water Conservation Techniques</h3>
+      <p>Water is a precious resource. This guide explains methods like mulching to retain soil moisture, drip irrigation to target the roots efficiently, and rainwater harvesting to reduce reliance on municipal supplies.</p>
+      <p>Discover how to create rain gardens and select drought-resistant plants to maintain a beautiful and healthy garden with minimal water use, saving both the environment and your utility bill.</p>
+    </article>
+    <article tabindex="0">
+      <h3>Choosing the Right Soil for Your Plants</h3>
+      <p>Soil health is fundamental to plant growth. Learn how to test your soil's texture, pH, and nutrient content.</p>
+      <p>We'll guide you through ways to amend your soil with organic matter, minerals, and beneficial microorganisms to create an optimal environment for your plants to thrive.</p>
+    </article>
+    <article tabindex="0">
+      <h3>Preventing Common Plant Diseases</h3>
+      <p>Early prevention and control of plant diseases saves your garden from serious damage. Understand the causes and symptoms of the most common fungal, bacterial, and viral diseases.</p>
+      <p>This article covers best practices such as crop rotation, proper spacing for airflow, cleanliness, use of resistant varieties, and organic or chemical treatment options when needed.</p>
+    </article>
+  </section>
+
+  <section id="feedback" aria-labelledby="feedback-title" tabindex="0" class="container">
+    <h2 id="feedback-title">We value your feedback</h2>
+    <p>Your opinions help us improve! Whether it’s about our workshops, consultations, website content, or overall service, we appreciate your suggestions and comments. Our commitment to customer satisfaction means your voice is powerful in shaping future offerings.</p>
+    <form id="feedback-form" aria-describedby="feedback-desc" novalidate>
+      <p id="feedback-desc">Please share your experience or suggestions to help us improve.</p>
+      <label for="name">Name<span aria-hidden="true" style="color:#d9534f;"> *</span></label>
+      <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-error" />
+      <span id="name-error" class="feedback-error" role="alert" style="display:none; color:#d9534f; font-size:0.875rem;">Please enter your name.</span>
+
+      <label for="email">Email<span aria-hidden="true" style="color:#d9534f;"> *</span></label>
+      <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-error" />
+      <span id="email-error" class="feedback-error" role="alert" style="display:none; color:#d9534f; font-size:0.875rem;">Please enter a valid email.</span>
+
+      <label for="message">Message<span aria-hidden="true" style="color:#d9534f;"> *</span></label>
+      <textarea id="message" name="message" required aria-required="true" aria-describedby="message-error"></textarea>
+      <span id="message-error" class="feedback-error" role="alert" style="display:none; color:#d9534f; font-size:0.875rem;">Please enter your message.</span>
+
+      <button type="submit">Submit Feedback</button>
+      <div id="form-feedback" class="feedback-message" role="alert" style="display:none;"></div>
+    </form>
+  </section>
+
+  <section id="disclaimer" aria-labelledby="disclaimer-title" tabindex="0" class="disclaimer">
+    <h2 id="disclaimer-title">Disclaimer</h2>
+    <p>The information offered by GreenMentor Hub on gardening, consultations, and workshops is provided for general educational purposes only. While we strive for accuracy and reliability, individual gardening outcomes may vary widely depending on environmental conditions, plant varieties, and gardening methods.</p>
+    <p>GreenMentor Hub and its mentors disclaim any liability for damages resulting from the use of our educational materials and advice. We encourage all users to perform due diligence and consult local gardening professionals where necessary. Our advice does not replace personalized professional consultation in specialized circumstances.</p>
+    <p>Use all information responsibly and be aware of regulations and safety practices related to gardening and plant care in your locality.</p>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-title" tabindex="0" class="container">
+    <h2 id="contact-title">Contact & Location</h2>
+    <p>We’d love to hear from you! Visit our offices, send mail, or connect with us online for inquiries, bookings, or support.</p>
+    <address>
+      <strong>Address:</strong> 33 Washington Square W, New York, NY 10011, USA<br />
+      <strong>Phone:</strong> +1 (855) 233-5555<br />
+      <strong>Email:</strong> contact@greenmentorhub.com<br />
+      <strong>Office Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM EST
+    </address>
+    <div style="margin-top:1rem;">
+      <h3>Our Services</h3>
+      <ul>
+        <li>Gardening Workshops (In-person and Online)</li>
+        <li>Live Video Consultations with Expert Mentors</li>
+        <li>Customized Plant Care Advice & Troubleshooting</li>
+        <li>Community Garden Events & Networking</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo" class="bottom-info" aria-label="Customer Satisfaction Footer">
+  We prioritize your satisfaction — Dedicated to growing your gardening potential every day.
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const toggleButton = document.querySelector('.mobile-nav-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  toggleButton.addEventListener('click', () => {
+    const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+    toggleButton.setAttribute('aria-expanded', String(!isExpanded));
+    mobileNav.classList.toggle('show');
+  });
+
+  // Feedback form validation and submission simulation
+  const form = document.getElementById('feedback-form');
+  const nameInput = form.querySelector('#name');
+  const emailInput = form.querySelector('#email');
+  const messageInput = form.querySelector('#message');
+  const formFeedback = document.getElementById('form-feedback');
+  const nameError = form.querySelector('#name-error');
+  const emailError = form.querySelector('#email-error');
+  const messageError = form.querySelector('#message-error');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    if (!nameInput.value.trim()) {
+      nameError.style.display = 'inline';
+      valid = false;
+    } else {
+      nameError.style.display = 'none';
+    }
+
+    if (!emailInput.value.trim() || !validateEmail(emailInput.value.trim())) {
+      emailError.style.display = 'inline';
+      valid = false;
+    } else {
+      emailError.style.display = 'none';
+    }
+
+    if (!messageInput.value.trim()) {
+      messageError.style.display = 'inline';
+      valid = false;
+    } else {
+      messageError.style.display = 'none';
+    }
+
+    if (valid) {
+      // Simulate form submission
+      formFeedback.textContent = "Thank you for your feedback! We appreciate your input.";
+      formFeedback.style.display = 'block';
+      form.reset();
+    } else {
+      formFeedback.style.display = 'none';
+    }
+  });
+
+  function validateEmail(email) {
+    // simple regex for email validation
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+</script>
+</body>
+</html>
+
